@@ -11,6 +11,8 @@ Eco-Chamber 的文檔是基於 [Sphinx](http://www.sphinx-doc.org/en/master/) �
 $ git clone https://github.com/eco-chamber/handbook.git
 ```
 
+----------------------
+
 ### 二、安裝依賴套件
 
 `cd` 進 handbook 專案目錄，安裝依賴套件。
@@ -30,6 +32,8 @@ $ pipenv install -r requirements.txt
 # using conda
 while read requirement; do conda install --yes $requirement; done < requirements.txt
 ```
+
+----------------------
 
 ### 三、文檔目錄結構
 
@@ -66,6 +70,8 @@ while read requirement; do conda install --yes $requirement; done < requirements
 
 是不是很熟悉~ 檔案目錄都呈現在這裡了。
 
+----------------------
+
 ### 四、修改文字內容
 
 進入 `topic_folders` 會看到很多資料夾，裡面包含了 Markdown 文件和定義文檔目錄結構的 `index.rst`。
@@ -78,6 +84,8 @@ while read requirement; do conda install --yes $requirement; done < requirements
 
 打開文字編輯器開始修改文件即可~
 
+----------------------
+
 ### 五、產生 Html 靜態檔案
 
 `cd` 回去專案根目錄，輸入命令產生靜態檔案
@@ -85,6 +93,8 @@ while read requirement; do conda install --yes $requirement; done < requirements
 ```shell
 $ make html
 ```
+
+----------------------
 
 ### 六、上傳至 GitHub
 
