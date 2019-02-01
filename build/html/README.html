@@ -8,12 +8,10 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>handbook &mdash; The Carpentries Handbook  documentation</title>
+  <title>如何修改行為守則 (Code of Conduct) &mdash; The Carpentries Handbook  documentation</title>
   
 
   
-  
-    <link rel="shortcut icon" href="_static/logo.ico"/>
   
   
   
@@ -51,9 +49,6 @@
             <a href="index.html" class="icon icon-home"> The Carpentries Handbook
           
 
-          
-            
-            <img src="_static/logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -663,7 +658,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>handbook</li>
+      <li>如何修改行為守則 (Code of Conduct)</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -684,8 +679,92 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="handbook">
-<h1>handbook<a class="headerlink" href="#handbook" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="code-of-conduct">
+<h1>如何修改行為守則 (Code of Conduct)<a class="headerlink" href="#code-of-conduct" title="Permalink to this headline">¶</a></h1>
+<p>Eco-Chamber 的文檔是基於 <a class="reference external" href="http://www.sphinx-doc.org/en/master/">Sphinx</a> 文檔產生器生成， Sphinx 是一個輕量、快速，並且基於 Python 的文檔生成器，可以用來撰寫 API 文件、專案說明和交接文件等等，也提供了多種<a class="reference external" href="http://www.sphinx-doc.org/en/stable/theming.html">背景樣式</a>可供使用，連 Python 本身的<a class="reference external" href="https://docs.python.org/3/">文檔</a>也是利用 Sphinx 生成的噢。</p>
+<div class="section" id="git-clone">
+<h2>一、git clone 本專案<a class="headerlink" href="#git-clone" title="Permalink to this headline">¶</a></h2>
+<p>打開終端機輸入指令，或使用任何一個 GUI 軟體都可以，例如： <a class="reference external" href="https://desktop.github.com/">GitHub Desktop</a>。</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git clone https://github.com/eco-chamber/handbook.git
+</pre></div>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>二、安裝依賴套件<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">cd</span></code> 進 handbook 專案目錄，安裝依賴套件。</p>
+<ul class="simple">
+<li>recommonmark</li>
+<li>Sphinx</li>
+<li>sphinx_rtd_theme</li>
+<li>sphinx-markdown-tables</li>
+</ul>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># using pip</span>
+$ pip install -r requirements.txt
+
+<span class="c1"># using pipenv</span>
+$ pipenv install -r requirements.txt
+
+<span class="c1"># using conda</span>
+<span class="k">while</span> <span class="nb">read</span> requirement<span class="p">;</span> <span class="k">do</span> conda install --yes <span class="nv">$requirement</span><span class="p">;</span> <span class="k">done</span> &lt; requirements.txt
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>三、文檔目錄結構<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p><img alt="https://i.imgur.com/UGrCf5s.png" src="https://i.imgur.com/UGrCf5s.png" /></p>
+<p>會改動到的只有</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">index.rst</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">./topic_folders</span></code> 目錄底下的東西</li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">.rst</span></code> 結尾的檔案用來更改檔案目錄，打開 <code class="docutils literal notranslate"><span class="pre">index.rst</span></code>，會看到：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">toctree</span><span class="p">::</span>
+   <span class="p">:</span><span class="n">maxdepth</span><span class="p">:</span> <span class="mi">2</span>   
+   <span class="p">:</span><span class="n">glob</span><span class="p">:</span>
+   <span class="p">:</span><span class="n">caption</span><span class="p">:</span> <span class="n">General</span> <span class="n">Resources</span>
+
+   <span class="n">topic_folders</span><span class="o">/</span><span class="n">assessment</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">rst</span>
+   <span class="n">topic_folders</span><span class="o">/</span><span class="n">communications</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">rst</span>
+   <span class="n">topic_folders</span><span class="o">/</span><span class="n">for_instructors</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">rst</span>
+   <span class="n">topic_folders</span><span class="o">/</span><span class="n">instructor_development</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">rst</span>
+   <span class="n">topic_folders</span><span class="o">/</span><span class="n">instructor_training</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">rst</span>
+   <span class="n">topic_folders</span><span class="o">/</span><span class="n">lesson_development</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">rst</span>
+   <span class="n">topic_folders</span><span class="o">/</span><span class="n">maintainers</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">rst</span>
+   <span class="n">topic_folders</span><span class="o">/</span><span class="n">policies</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">rst</span>
+   <span class="n">topic_folders</span><span class="o">/</span><span class="n">regional_communities</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">rst</span>
+   <span class="n">topic_folders</span><span class="o">/</span><span class="n">hosts_instructors</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">rst</span>
+   <span class="n">topic_folders</span><span class="o">/</span><span class="n">workshop_administration</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">rst</span>
+   <span class="n">topic_folders</span><span class="o">/</span><span class="n">governance</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">rst</span>
+</pre></div>
+</div>
+<p>對照文檔網頁會看到
+<img alt="https://i.imgur.com/4cFJbBQ.png" src="https://i.imgur.com/4cFJbBQ.png" /></p>
+<p>是不是很熟悉~ 檔案目錄都呈現在這裡了。</p>
+</div>
+<div class="section" id="id3">
+<h2>四、修改文字內容<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>進入 <code class="docutils literal notranslate"><span class="pre">topic_folders</span></code> 會看到很多資料夾，裡面包含了 Markdown 文件和定義文檔目錄結構的 <code class="docutils literal notranslate"><span class="pre">index.rst</span></code>。</p>
+<p><img alt="https://i.imgur.com/KGtTafh.png" src="https://i.imgur.com/KGtTafh.png" /></p>
+<p>對應到網站則是呈現</p>
+<p><img alt="https://i.imgur.com/DMgGFkH.png" src="https://i.imgur.com/DMgGFkH.png" /></p>
+<p>打開文字編輯器開始修改文件即可~</p>
+</div>
+<div class="section" id="html">
+<h2>五、產生 Html 靜態檔案<a class="headerlink" href="#html" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">cd</span></code> 回去專案根目錄，輸入命令產生靜態檔案</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ make html
+</pre></div>
+</div>
+</div>
+<div class="section" id="github">
+<h2>六、上傳至 GitHub<a class="headerlink" href="#github" title="Permalink to this headline">¶</a></h2>
+<p>輸入 git 指令上傳專案。</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git add .                       <span class="c1"># 加入改動的文件</span>
+$ git commit -m <span class="s2">&quot;add new post&quot;</span>    <span class="c1"># commit 訊息</span>
+$ git push                        <span class="c1"># 推送至 GitHub</span>
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -735,45 +814,7 @@
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>  
-
-  <style>
-    /* Sidebar header (and topbar for mobile) */
-    a {
-    color: #071159;
-    border-bottom: 1px dotted;
-    }
-    a:hover {
-    border-bottom: 2px solid;
-    }
-    .wy-side-nav-search, .wy-nav-top {
-       background: #e4e4e4;
-    }
-    .wy-side-nav-search > a {
-    color: #404040;
-    border-bottom: 0;
-    }
-    /* Sidebar */
-    .wy-menu-vertical header, .wy-menu-vertical p.caption {
-      color: #b3b3b3;
-    }
-    .wy-nav-side {
-      background: #071159;
-    }
-    .wy-menu-vertical a {
-    color: #eee;
-    border-bottom: 0;
-    }
-    .wy-menu-vertical a:active {
-     background-color: #e3e6fd;
-     cursor: pointer;
-     color: #fff;
-    }
-    .fa-plus-square-o::before, .wy-menu-vertical li span.toctree-expand::before {
-    color: #b3b3b3;
-    }
-  </style>
-
+  </script> 
 
 </body>
 </html>

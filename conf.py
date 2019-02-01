@@ -48,7 +48,7 @@ source_suffix = ['.rst', '.md']
 extensions = ['sphinx_markdown_tables']
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ['_templates']
+# templates_path = ['_templates']
 
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
@@ -125,9 +125,9 @@ html_theme_options = {
 # so a file named "default.css" will overwrite the builtin "default.css".
 # html_static_path = ['_static']
 
-html_favicon = "img/logo.ico"
+# html_favicon = "img/logo.ico"
 
-html_logo = 'img/logo.png'
+# html_logo = 'img/logo.png'
 
 html_show_sourcelink = False
 # Custom sidebar templates, must be a dictionary that maps document names
