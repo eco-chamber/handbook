@@ -40,8 +40,8 @@ while read requirement; do conda install --yes $requirement; done < requirements
 ![](https://i.imgur.com/UGrCf5s.png)
 
 會改動到的只有 
-- `index.rst`
-- `./topic_folders` 目錄底下的東西
+- [index.rst](https://github.com/eco-chamber/handbook/blob/master/index.rst)
+- [./topic_folders](https://github.com/eco-chamber/handbook/tree/master/topic_folders) 目錄底下的東西
 
 `.rst` 結尾的檔案用來更改檔案目錄，打開 `index.rst`，會看到：
 
